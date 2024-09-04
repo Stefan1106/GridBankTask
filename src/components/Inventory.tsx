@@ -11,7 +11,7 @@ interface InventoryItem {
     | "machinery";
   description: string;
   added_at: Date;
-  state: "in user" | "lost" | "deprecated" | "broken";
+  state: "in use" | "lost" | "deprecated" | "broken";
   last_updated_at: Date;
 }
 
@@ -22,7 +22,7 @@ function Inventory() {
   >({
     type: "computer equipment",
     description: "",
-    state: "in user",
+    state: "in use",
   });
   const [editItemId, setEditItemId] = useState<string | null>(null);
   const [editFields, setEditFields] = useState<
@@ -78,7 +78,7 @@ function Inventory() {
           setNewItem({
             type: "computer equipment",
             description: "",
-            state: "in user",
+            state: "in use",
           });
         } else {
           console.error("Failed to add item:", response.statusText);
@@ -194,7 +194,7 @@ function Inventory() {
             })
           }
         >
-          <option value="in user">In User</option>
+          <option value="in use">In Use</option>
           <option value="lost">Lost</option>
           <option value="deprecated">Deprecated</option>
           <option value="broken">Broken</option>
@@ -271,7 +271,7 @@ function Inventory() {
                       })
                     }
                   >
-                    <option value="in user">In User</option>
+                    <option value="in use">In Use</option>
                     <option value="lost">Lost</option>
                     <option value="deprecated">Deprecated</option>
                     <option value="broken">Broken</option>
